@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import counter from './counter'
 import { combineForms } from 'react-redux-form';
 
 const ics = {
@@ -18,6 +17,5 @@ const ics = {
 
 export default combineReducers({
   router: routerReducer,
-  counter,
   forms: combineForms({general: {}, conclusions: [ ics, ics, ics], results: [ ics, ics, ics]})
 })
