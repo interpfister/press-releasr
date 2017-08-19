@@ -2,16 +2,100 @@ import React from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Button } from 'react-bootstrap'
 import {
   increment,
   incrementAsync,
   decrement,
   decrementAsync
 } from '../../modules/counter'
+import ConclusionForm from '../../forms/conclusion'
+
+
+const FieldGroup = ({ id, label, help, ...props }) => {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  );
+}
+
+const FormInstance = () => (
+  <form>
+    <FormGroup>
+      <div><ControlLabel>Style</ControlLabel></div>
+      <Radio name="radioGroup" inline>
+        Old World
+      </Radio>
+      <Radio name="radioGroup" inline>
+        New World
+      </Radio>
+    </FormGroup>
+    <FormGroup>
+      <div><ControlLabel>Climate</ControlLabel></div>
+      <Radio name="radioGroup" inline>
+        Cool
+      </Radio>
+      <Radio name="radioGroup" inline>
+        Moderate
+      </Radio>
+      <Radio name="radioGroup" inline>
+        Warm
+      </Radio>
+    </FormGroup>
+
+    <FormGroup controlId="formControlsSelect">
+      <ControlLabel>Select</ControlLabel>
+      <FormControl componentClass="select" placeholder="select">
+        <option value="select">select</option>
+        <option value="other">...</option>
+      </FormControl>
+    </FormGroup>
+    <FormGroup controlId="formControlsSelectMultiple">
+      <ControlLabel>Multiple select</ControlLabel>
+      <FormControl componentClass="select" multiple>
+        <option value="select">select (multiple)</option>
+        <option value="other">...</option>
+      </FormControl>
+    </FormGroup>
+
+    <FormGroup controlId="formControlsTextarea">
+      <ControlLabel>Textarea</ControlLabel>
+      <FormControl componentClass="textarea" placeholder="textarea" />
+    </FormGroup>
+
+    <FormGroup>
+      <ControlLabel>Static text</ControlLabel>
+      <FormControl.Static>
+        email@example.com
+      </FormControl.Static>
+    </FormGroup>
+
+    <Button type="submit">
+      Submit
+    </Button>
+  </form>
+);
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
+    <h1>Blind Wine Tasting</h1>
+    { /* 
+    <FieldGroup
+      id="generalNotes"
+      type="text"
+      label="General Tasting Notes"
+      placeholder="Restaurant, theme, etc."
+    />
+    
+    <FormInstance />
+    <FormInstance />
+    <FormInstance />
+    */ }
+    <ConclusionForm />
+
     <p>Count: {props.count}</p>
 
     <p>

@@ -5,6 +5,8 @@ import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './store'
 import App from './containers/app'
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'sanitize.css/sanitize.css'
 import './index.css'
 
@@ -13,7 +15,7 @@ const target = document.querySelector('#root')
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
+      <div className="container">
         <App />
       </div>
     </ConnectedRouter>
