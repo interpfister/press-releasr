@@ -9,15 +9,15 @@ const ConclusionForm = (props) => (
     <ControlLabel>Style</ControlLabel>
     <Control.select model=".style" className="form-control">
       <option></option>
-      <option value="old-world">Old World</option>
-      <option value="new-world">New World</option>
+      <option value="Old World">Old World</option>
+      <option value="New World">New World</option>
     </Control.select>
     <ControlLabel>Climate</ControlLabel>
     <Control.select model=".climate" className="form-control">
       <option></option>
-      <option value="cool">Cool</option>
-      <option value="moderate">Moderate</option>
-      <option value="warm">Warm</option>
+      <option value="Cool">Cool</option>
+      <option value="Moderate">Moderate</option>
+      <option value="Warm">Warm</option>
     </Control.select>
     <ControlLabel>Age</ControlLabel>
     <Control.select model=".age" className="form-control">
@@ -38,9 +38,11 @@ const ConclusionForm = (props) => (
     <ControlLabel>Region</ControlLabel>
     <Control.text model=".region" className="form-control" />
     <ControlLabel>Sub-Region</ControlLabel>
-    <Control.text model=".sub-region" className="form-control" />
+    <Control.text model=".subregion" className="form-control" />
     <ControlLabel>Quality Level</ControlLabel>
-    <Control.text model=".quality-level" className="form-control" />
+    <Control.text model=".quality" className="form-control" />
+    <ControlLabel>Other Observations</ControlLabel>
+    <Control.textarea model=".otherObservations" className="form-control" />
     <hr />
   </Form>
 );
