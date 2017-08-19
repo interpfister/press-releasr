@@ -6,5 +6,5 @@ import { combineForms } from 'react-redux-form';
 export default combineReducers({
   router: routerReducer,
   counter,
-  forms: combineForms({general: {}, conclusion: {}})
+  forms: combineForms({general: {}, conclusions: [ {}, {}, {}]})
 })

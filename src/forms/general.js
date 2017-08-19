@@ -6,27 +6,12 @@ import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Butto
 
 const TextArea = () => (<FormControl componentClass="textarea" placeholder="textarea" />);
 
-class ConclusionForm extends React.Component {
-  handleSubmit(val) {
-    // Do anything you want with the form value
-    console.log(val);
-  }
-
-  
-
-  render() {
-    return (
-      <Form model="general" onSubmit={(val) => this.handleSubmit(val)}>
-        <ControlLabel>General Tasting Notes</ControlLabel>
-        <Control model=".tastingNotes" component={TextArea} />
-
-
-
-        <button>Submit!</button>
-      </Form>
-    );
-  }
-}
+const GeneralForm = () => (
+  <Form model="general" onSubmit={(val) => this.handleSubmit(val)}>
+    <ControlLabel>General Tasting Notes</ControlLabel>
+    <Control.textarea model=".tastingNotes" className="form-control" />
+  </Form>
+);
 
 // No need to connect()!
-export default ConclusionForm;
+export default GeneralForm;
