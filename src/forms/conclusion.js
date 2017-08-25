@@ -12,13 +12,6 @@ const ConclusionForm = (props) => (
       <option value="Old World">Old World</option>
       <option value="New World">New World</option>
     </Control.select>
-    <ControlLabel>Climate</ControlLabel>
-    <Control.select model=".climate" className="form-control">
-      <option></option>
-      <option value="Cool">Cool</option>
-      <option value="Moderate">Moderate</option>
-      <option value="Warm">Warm</option>
-    </Control.select>
     <ControlLabel>Age</ControlLabel>
     <Control.select model=".age" className="form-control">
       <option></option>

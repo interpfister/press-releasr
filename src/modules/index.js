@@ -4,7 +4,6 @@ import { combineForms } from 'react-redux-form';
 
 const ics = {
   style: '',
-  climate: '',
   age: '',
   vintage: '',
   varietals: '',
