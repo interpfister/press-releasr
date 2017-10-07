@@ -1,20 +1,22 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import { combineForms } from 'react-redux-form';
+import { reducer as formReducer } from 'redux-form'
 
-const ics = {
-  style: '',
-  age: '',
-  vintage: '',
-  varietals: '',
-  country: '',
-  region: '',
-  subregion: '',
-  quality: '',
-  otherObservations: ''
-};
+// const ics = {
+//   style: '',
+//   age: '',
+//   vintage: '',
+//   varietals: '',
+//   country: '',
+//   region: '',
+//   subregion: '',
+//   quality: '',
+//   otherObservations: ''
+// };
+
+const initialFormState = {general: {}, conclusions: [ {}, {}, {}], results: [ {}, {}, {}]};
 
 export default combineReducers({
   router: routerReducer,
-  forms: combineForms({general: {}, conclusions: [ ics, ics, ics], results: [ ics, ics, ics]})
+  form: formReducer,
 })

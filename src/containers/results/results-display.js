@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ResultsDisplay = (props) => (
+const ResultsDisplay = (props) => props.data ? (
   <div>
     <div>Style: {props.data.style}</div>
     <div>Climate: {props.data.climate}</div>
@@ -13,6 +13,6 @@ const ResultsDisplay = (props) => (
     <div>Quality: {props.data.quality}</div>
     <div>Other Observations: {props.data.otherObservations}</div>
   </div>
-)
+) : null;
 
-export default ResultsDisplay
+export default ResultsDisplay;

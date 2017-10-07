@@ -1,17 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Control, Form } from 'react-redux-form';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Button } from 'react-bootstrap'
+import { ControlLabel } from 'react-bootstrap'
 
+import { Field, reduxForm } from 'redux-form'
 
-const TextArea = () => (<FormControl componentClass="textarea" placeholder="textarea" />);
+const GeneralForm = props => {
+  return (
+    <form>
+      <ControlLabel>General Tasting Notes</ControlLabel>
+      <Field name="tastingNotes" component="textarea" className="form-control" />
+    </form>
+  )
+}
 
-const GeneralForm = () => (
-  <Form model="general" onSubmit={(val) => this.handleSubmit(val)}>
-    <ControlLabel>General Tasting Notes</ControlLabel>
-    <Control.textarea model=".tastingNotes" className="form-control" />
-  </Form>
-);
+const ConnectedGeneralForm = reduxForm({
+  form: 'general',
+  destroyOnUnmount: false,
+})(GeneralForm);
 
-// No need to connect()!
-export default GeneralForm;
+export default ConnectedGeneralForm;

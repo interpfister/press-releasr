@@ -10,11 +10,11 @@ const Entry = props => (
     <h1>Blind Wine Tasting</h1>
     <GeneralForm />
     <h3>Wine 1</h3>
-    <ConclusionForm model="conclusions[0]" />
+    <ConclusionForm form="conclusions[0]" />
     <h3>Wine 2</h3>
-    <ConclusionForm model="conclusions[1]" />
+    <ConclusionForm form="conclusions[1]" />
     <h3>Wine 3</h3>
-    <ConclusionForm model="conclusions[2]" />
+    <ConclusionForm form="conclusions[2]" />
 
     <p><button onClick={() => props.changePage()}>Enter Results</button></p>
   </div>
