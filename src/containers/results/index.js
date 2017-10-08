@@ -1,25 +1,24 @@
-import React from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import ResultsDisplay from './results-display'
-import ConclusionForm from '../../forms/conclusion'
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import ResultsForm from '../../forms/results';
+import { ControlLabel } from 'react-bootstrap';
 
 const Results = (props) => (
   <div>
     <h1>Results</h1>
     <h3>Wine 1</h3>
-    <ResultsDisplay data={props.conclusions[0].values} />
-    <ConclusionForm form="results[0]" />
+    <ResultsForm form="results[0]" conclusionsData={props.conclusions[0].values || {}} />
     Points: {points(props.conclusions[0].values, props.results[0].values)}
     <h3>Wine 2</h3>
-    <ResultsDisplay data={props.conclusions[1].values} />
-    <ConclusionForm form="results[1]" />
+    <ResultsForm form="results[1]" conclusionsData={props.conclusions[1].values || {}} />
     Points: {points(props.conclusions[1].values, props.results[1].values)}
     <h3>Wine 3</h3>
-    <ResultsDisplay data={props.conclusions[2].values} />
-    <ConclusionForm form="results[2]" />
+    <ResultsForm form="results[2]" conclusionsData={props.conclusions[2].values || {}} />
     Points: {points(props.conclusions[2].values, props.results[2].values)}
     <hr />
+    <ControlLabel>General Tasting Notes</ControlLabel>
+    <div>{props.general && props.general.values && props.general.values.tastingNotes}</div>
     Total Points: {sumOfPoints(props)}
   </div>
 )
@@ -45,7 +44,8 @@ const sumOfPoints = (props) => {
 
 const mapStateToProps = state => ({
   conclusions: state.form.conclusions || [{},{},{}],
-  results: state.form.results || [{},{},{}]
+  results: state.form.results || [{},{},{}],
+  general: state.form.general || {},
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

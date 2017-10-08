@@ -13,3 +13,11 @@ body {
 button:disabled {
   opacity: 0.5;
 }
+
+input[type='checkbox'] {
+  margin: 5px;
+}
+
+label {
+  margin-top: 5px;
+}

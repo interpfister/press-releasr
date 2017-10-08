@@ -6,6 +6,7 @@ const ConclusionForm = (props) => (
   <form>
     <h4>Initial Conclusion</h4>
     <ControlLabel>Style</ControlLabel>
+    {props.resultsPage && <Field name="style-checked" component="input" type="checkbox" />}
     <Field name="style" component="select" className="form-control">
       <option></option>
       <option value="Old World">Old World</option>

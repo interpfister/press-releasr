@@ -14,7 +14,7 @@ import { reducer as formReducer } from 'redux-form'
 //   otherObservations: ''
 // };
 
-const initialFormState = {general: {}, conclusions: [ {}, {}, {}], results: [ {}, {}, {}]};
+// const initialFormState = {general: {}, conclusions: [ {}, {}, {}], results: [ {}, {}, {}]};
 
 export default combineReducers({
   router: routerReducer,
