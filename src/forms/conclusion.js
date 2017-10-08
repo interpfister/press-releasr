@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { ControlLabel } from 'react-bootstrap';
+import VarietalsAutocomplete from '../helpers/varietals-autocomplete';
 
 const ConclusionForm = (props) => (
   <form>
@@ -25,7 +26,7 @@ const ConclusionForm = (props) => (
     <ControlLabel>Vintage</ControlLabel>
     <Field name="vintage" component="input" type="text" className="form-control" />
     <ControlLabel>Varietals</ControlLabel>
-    <Field name="varietals" component="input" type="text" className="form-control" />
+    <Field name="varietals" component={VarietalsAutocomplete} />
     <ControlLabel>Country</ControlLabel>
     <Field name="country" component="input" type="text" className="form-control" />
     <ControlLabel>Region</ControlLabel>
