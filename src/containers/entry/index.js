@@ -3,20 +3,12 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import GeneralForm from '../../forms/general'
-import ConclusionForm from '../../forms/conclusion'
 
 const Entry = props => (
   <div>
-    <h1>Blind Wine Tasting</h1>
+    <h1>Enter Press Release Content</h1>
     <GeneralForm />
-    <h3>Wine 1</h3>
-    <ConclusionForm form="conclusions[0]" />
-    <h3>Wine 2</h3>
-    <ConclusionForm form="conclusions[1]" />
-    <h3>Wine 3</h3>
-    <ConclusionForm form="conclusions[2]" />
-
-    <p><button onClick={() => props.changePage()}>Enter Results</button></p>
+    <p><button onClick={() => props.changePage()}>View Press Release</button></p>
   </div>
 )
 
