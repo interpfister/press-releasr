@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
+import moment from 'moment';
 import { STATES } from 'us';
+import formDateFormat from './date-format';
 
 const generalFormValues = (state) => state.form.general && state.form.general.values;
 const getSelectedEventType = (state) => state.form.eventType && state.form.eventType.values && state.form.eventType.values.EVENT_TYPE;
@@ -12,6 +14,12 @@ const createRegex = (key) => {
 const replaceAPAbbr = (content, values) => {
   const key = "STATE";
   return values[key] ? content.replace(createRegex("STATE_AP"), STATES.find((state) => state.name === values[key]).ap_abbr) : content;
+}
+
+const replaceDayDate = (content, values) => {
+  const displayFormat = "dddd, MMMM Do";
+  const key = "DATE";
+  return values[key] ? content.replace(createRegex("DAY_DATE"), moment(values[key], formDateFormat).format(displayFormat)) : content;
 }
 
 const replaceRegular = (content, values) => {
@@ -43,6 +51,7 @@ const getReleaseContent = createSelector(
       modifiedContent = replaceRegular(modifiedContent, values);
       modifiedContent = replaceUpperCase(modifiedContent, values);
       modifiedContent = replaceAPAbbr(modifiedContent, values);
+      modifiedContent = replaceDayDate(modifiedContent, values);
       
       return modifiedContent;
     } else {
