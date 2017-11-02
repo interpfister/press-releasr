@@ -21,7 +21,7 @@ const fetchContent = () => {
           !response.items[0].fields.body) {
           throw new Error('No content received from contentful');
       }
-      dispatch(updateContent(response.items[0].fields.body));
+      dispatch(updateContent(response.items));
     }
 };
 

@@ -2,7 +2,8 @@ import { createSelector } from 'reselect';
 import { STATES } from 'us';
 
 const generalFormValues = (state) => state.form.general && state.form.general.values;
-const releaseContent = (state) => state.content.body;
+const getSelectedEventType = (state) => state.form.eventType && state.form.eventType.values && state.form.eventType.values.EVENT_TYPE;
+const getItems = (state) => state.content.items;
 
 const createRegex = (key) => {
   return new RegExp(`{${key}}`, "ig");
@@ -30,8 +31,13 @@ const replaceUpperCase = (content, values) => {
 }
 
 const getReleaseContent = createSelector(
-  [generalFormValues, releaseContent],
-  (values, content) => {
+  [generalFormValues, getItems, getSelectedEventType],
+  (values, items, eventType) => {
+    if(!eventType) {
+      return "You must select an event type on the first page.";
+    }
+    const item = items.find((item) => item.fields.eventType === eventType);
+    const content = item.fields.body;
     if(values && content) {
       let modifiedContent = content;
       modifiedContent = replaceRegular(modifiedContent, values);

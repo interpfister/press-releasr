@@ -1,7 +1,7 @@
-const updateContent = (body) => (
+const updateContent = (items) => (
   {
     payload: {
-      body,
+      items,
     },
     type: 'UPDATE_CONTENT',
   }

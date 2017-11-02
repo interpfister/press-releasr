@@ -1,16 +1,16 @@
 const initialState = {
-  body: '',
+  items: [],
 }
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch(action.type) {
     case 'UPDATE_CONTENT':
       return {
         ...state,
-        body: action.payload.body,
+        items: action.payload.items,
       }
     default:
-      return initialState;
+      return state;
   }
 }
 
