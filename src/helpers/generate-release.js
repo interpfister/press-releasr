@@ -23,19 +23,15 @@ const replaceDayDate = (content, values) => {
 }
 
 const replaceRegular = (content, values) => {
-  let modifiedContent = content;
-  Object.keys(values).forEach((key) => {
-    modifiedContent = modifiedContent.replace(createRegex(key), values[key]);
-  });
-  return modifiedContent;
+  return Object.keys(values).reduce((modifiedContent, key) => {
+    return modifiedContent.replace(createRegex(key), values[key]);
+  }, content);
 }
 
 const replaceUpperCase = (content, values) => {
-  let modifiedContent = content;
-  Object.keys(values).forEach((key) => {
-    modifiedContent = modifiedContent.replace(createRegex(`${key}_UPPER_CASE`), values[key].toUpperCase());
-  });
-  return modifiedContent;
+  return Object.keys(values).reduce((modifiedContent, key) => {
+    return modifiedContent.replace(createRegex(`${key}_UPPER_CASE`), values[key].toUpperCase());
+  }, content);
 }
 
 const getReleaseContent = createSelector(
@@ -47,13 +43,10 @@ const getReleaseContent = createSelector(
     const item = items.find((item) => item.fields.eventType === eventType);
     const content = item.fields.body;
     if(values && content) {
-      let modifiedContent = content;
-      modifiedContent = replaceRegular(modifiedContent, values);
-      modifiedContent = replaceUpperCase(modifiedContent, values);
-      modifiedContent = replaceAPAbbr(modifiedContent, values);
-      modifiedContent = replaceDayDate(modifiedContent, values);
-      
-      return modifiedContent;
+      const funcs = [replaceRegular, replaceUpperCase, replaceAPAbbr, replaceDayDate];
+      return funcs.reduce((modifiedContent, func) => {
+        return func(modifiedContent, values);
+      }, content);
     } else {
       return "You need to enter fields on the first page.";
     }
