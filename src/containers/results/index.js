@@ -12,10 +12,7 @@ class Results extends React.Component {
   render() {
     return (
       <div>
-        <h1>Ultra-cool event coming up!!!</h1>
-        <div>
-          <ReactMarkdown source={this.props.content} />
-        </div>
+        <ReactMarkdown source={this.props.content} />
       </div>
     );
   } 
