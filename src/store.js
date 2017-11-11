@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './modules'
 
-export const history = createHistory({ basename: '/press-release' })
+export const history = createHistory({ basename: '/' })
 
 const initialState = {}
 const enhancers = []
