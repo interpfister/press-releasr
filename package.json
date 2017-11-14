@@ -35,5 +35,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://www.ryanpfister.com/press-release/"
+  "homepage": "https://press-release.herokuapp.com/"
 }
