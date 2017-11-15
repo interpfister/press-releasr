@@ -1,6 +1,7 @@
 {
   "root": "build/",
   "routes": {
+    "/robots.txt": "robots.txt",
     "/**": "index.html"
   },
   "https_only": true
