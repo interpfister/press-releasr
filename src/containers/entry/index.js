@@ -15,11 +15,11 @@ class Entry extends React.Component {
   render() {
     return (
       <div>
-        <h1>Enter Press Release Content</h1>
+        <h1>Enter Press Advisory Content</h1>
         <EventTypeForm eventTypes={this.props.eventTypes} />
         
         <GeneralForm />
-        <p><button onClick={() => this.props.changePage()}>View Press Release</button></p>
+        <p><button onClick={() => this.props.changePage()}>View Press Advisory</button></p>
       </div>
     );
   }
